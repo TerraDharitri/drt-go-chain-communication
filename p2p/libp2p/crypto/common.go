@@ -1,9 +1,9 @@
 package crypto
 
 import (
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 	libp2pCrypto "github.com/libp2p/go-libp2p/core/crypto"
-	"github.com/multiversx/mx-chain-core-go/core/check"
-	crypto "github.com/multiversx/mx-chain-crypto-go"
 )
 
 // ConvertPrivateKeyToLibp2pPrivateKey will convert common private key to libp2p private key

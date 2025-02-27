@@ -1,9 +1,9 @@
 package websocket
 
 import (
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
-	"github.com/multiversx/mx-chain-core-go/core/check"
-	"github.com/multiversx/mx-chain-core-go/marshal"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	"github.com/TerraDharitri/drt-go-chain-core/marshal"
 )
 
 type webSocketsPayloadConverter struct {

@@ -1,7 +1,7 @@
 package transceiver
 
 import (
-	"github.com/multiversx/mx-chain-communication-go/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket"
 )
 
 // WebSocketTransceiverStub -

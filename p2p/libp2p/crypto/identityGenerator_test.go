@@ -4,10 +4,10 @@ import (
 	"crypto/rand"
 	"testing"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/crypto"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
 	libp2pCrypto "github.com/libp2p/go-libp2p/core/crypto"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/crypto"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

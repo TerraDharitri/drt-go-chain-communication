@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	"github.com/multiversx/mx-chain-communication-go/websocket"
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
-	"github.com/multiversx/mx-chain-core-go/data/outport"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	"github.com/TerraDharitri/drt-go-chain-core/data/outport"
 	"github.com/stretchr/testify/require"
 )
 

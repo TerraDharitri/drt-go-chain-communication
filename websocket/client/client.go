@@ -6,13 +6,13 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/websocket"
-	"github.com/multiversx/mx-chain-communication-go/websocket/connection"
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
-	"github.com/multiversx/mx-chain-communication-go/websocket/transceiver"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/core/check"
-	"github.com/multiversx/mx-chain-core-go/core/closing"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/connection"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/transceiver"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	"github.com/TerraDharitri/drt-go-chain-core/core/closing"
 )
 
 // ArgsWebSocketClient holds the arguments needed for creating a client

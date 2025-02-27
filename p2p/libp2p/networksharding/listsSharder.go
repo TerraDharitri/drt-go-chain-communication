@@ -8,13 +8,13 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/networksharding/sorting"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
 	kbucket "github.com/libp2p/go-libp2p-kbucket"
 	"github.com/libp2p/go-libp2p/core/peer"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/config"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/networksharding/sorting"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/core/check"
 )
 
 var _ p2p.Sharder = (*listsSharder)(nil)

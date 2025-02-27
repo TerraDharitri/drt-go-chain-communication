@@ -4,11 +4,11 @@ import (
 	"errors"
 	"testing"
 
-	p2pCrypto "github.com/multiversx/mx-chain-communication-go/p2p/libp2p/crypto"
-	"github.com/multiversx/mx-chain-communication-go/p2p/mock"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	"github.com/multiversx/mx-chain-crypto-go/signing"
-	"github.com/multiversx/mx-chain-crypto-go/signing/secp256k1"
+	p2pCrypto "github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/crypto"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing/secp256k1"
 	"github.com/stretchr/testify/assert"
 )
 

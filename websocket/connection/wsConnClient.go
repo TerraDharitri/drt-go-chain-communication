@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"sync"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 	"github.com/gorilla/websocket"
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
-	logger "github.com/multiversx/mx-chain-logger-go"
 )
 
 var log = logger.GetOrCreate("connection")

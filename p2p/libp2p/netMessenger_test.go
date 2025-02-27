@@ -12,6 +12,21 @@ import (
 	"testing"
 	"time"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/data"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
+	p2pCrypto "github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/crypto"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/message"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	"github.com/TerraDharitri/drt-go-chain-core/marshal"
+	commonCrypto "github.com/TerraDharitri/drt-go-chain-crypto"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing/secp256k1"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 	pubsub "github.com/libp2p/go-libp2p-pubsub"
 	pb "github.com/libp2p/go-libp2p-pubsub/pb"
 	"github.com/libp2p/go-libp2p/core/network"
@@ -19,21 +34,6 @@ import (
 	"github.com/libp2p/go-libp2p/core/peerstore"
 	mocknet "github.com/libp2p/go-libp2p/p2p/net/mock"
 	"github.com/multiformats/go-multiaddr"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/config"
-	"github.com/multiversx/mx-chain-communication-go/p2p/data"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p"
-	p2pCrypto "github.com/multiversx/mx-chain-communication-go/p2p/libp2p/crypto"
-	"github.com/multiversx/mx-chain-communication-go/p2p/message"
-	"github.com/multiversx/mx-chain-communication-go/p2p/mock"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/core/check"
-	"github.com/multiversx/mx-chain-core-go/marshal"
-	commonCrypto "github.com/multiversx/mx-chain-crypto-go"
-	"github.com/multiversx/mx-chain-crypto-go/signing"
-	"github.com/multiversx/mx-chain-crypto-go/signing/secp256k1"
-	logger "github.com/multiversx/mx-chain-logger-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -328,7 +328,7 @@ func TestNewNetworkMessenger_WithKadDiscovererListsSharderInvalidTargetConnShoul
 		Enabled:                          true,
 		Type:                             "optimized",
 		RefreshIntervalInSec:             10,
-		ProtocolIDs:                      []string{"/erd/kad/1.0.0"},
+		ProtocolIDs:                      []string{"/drt/kad/1.0.0"},
 		InitialPeerList:                  nil,
 		BucketSize:                       100,
 		RoutingTableRefreshIntervalInSec: 10,
@@ -346,7 +346,7 @@ func TestNewNetworkMessenger_WithKadDiscovererListSharderShouldWork(t *testing.T
 		Enabled:                          true,
 		Type:                             "optimized",
 		RefreshIntervalInSec:             10,
-		ProtocolIDs:                      []string{"/erd/kad/1.0.0"},
+		ProtocolIDs:                      []string{"/drt/kad/1.0.0"},
 		InitialPeerList:                  nil,
 		BucketSize:                       100,
 		RoutingTableRefreshIntervalInSec: 10,
@@ -368,7 +368,7 @@ func TestNewNetworkMessenger_WithListenAddrWithIp4AndTcpShouldWork(t *testing.T)
 		Enabled:                          true,
 		Type:                             "optimized",
 		RefreshIntervalInSec:             10,
-		ProtocolIDs:                      []string{"/erd/kad/1.0.0"},
+		ProtocolIDs:                      []string{"/drt/kad/1.0.0"},
 		InitialPeerList:                  nil,
 		BucketSize:                       100,
 		RoutingTableRefreshIntervalInSec: 10,
@@ -1874,7 +1874,7 @@ func TestNetworkMessenger_Bootstrap(t *testing.T) {
 				Enabled:                          true,
 				Type:                             "optimized",
 				RefreshIntervalInSec:             10,
-				ProtocolIDs:                      []string{"erd/kad/1.0.0"},
+				ProtocolIDs:                      []string{"drt/kad/1.0.0"},
 				InitialPeerList:                  []string{"/ip4/35.214.140.83/tcp/10000/p2p/16Uiu2HAm6hPymvkZyFgbvWaVBKhEoPjmXhkV32r9JaFvQ7Rk8ynU"},
 				BucketSize:                       10,
 				RoutingTableRefreshIntervalInSec: 5,
@@ -2220,7 +2220,7 @@ func TestNetworkMessenger_HasCompatibleProtocolID(t *testing.T) {
 			Type:                             "optimized",
 			RefreshIntervalInSec:             1,
 			RoutingTableRefreshIntervalInSec: 1,
-			ProtocolIDs:                      []string{"/erd/kad/1.1.0"},
+			ProtocolIDs:                      []string{"/drt/kad/1.1.0"},
 			InitialPeerList:                  nil,
 			BucketSize:                       100,
 		}
@@ -2232,7 +2232,7 @@ func TestNetworkMessenger_HasCompatibleProtocolID(t *testing.T) {
 
 		arg3 := createMockNetworkArgs()
 		arg3.P2pConfig.KadDhtPeerDiscovery = arg1.P2pConfig.KadDhtPeerDiscovery     // copy by value
-		arg3.P2pConfig.KadDhtPeerDiscovery.ProtocolIDs = []string{"/erd/kad/1.2.0"} // another protocol ID
+		arg3.P2pConfig.KadDhtPeerDiscovery.ProtocolIDs = []string{"/drt/kad/1.2.0"} // another protocol ID
 		messenger3, _ := libp2p.NewNetworkMessenger(arg3)
 
 		_ = messenger2.CreateTopic("test", true)
@@ -2274,7 +2274,7 @@ func TestNetworkMessenger_HasCompatibleProtocolID(t *testing.T) {
 			Type:                             "optimized",
 			RefreshIntervalInSec:             1,
 			RoutingTableRefreshIntervalInSec: 1,
-			ProtocolIDs:                      []string{"/erd/kad/1.1.0", "mvx1"},
+			ProtocolIDs:                      []string{"/drt/kad/1.1.0", "mvx1"},
 			InitialPeerList:                  nil,
 			BucketSize:                       100,
 		}
@@ -2286,7 +2286,7 @@ func TestNetworkMessenger_HasCompatibleProtocolID(t *testing.T) {
 
 		arg3 := createMockNetworkArgs()
 		arg3.P2pConfig.KadDhtPeerDiscovery = arg1.P2pConfig.KadDhtPeerDiscovery             // copy by value
-		arg3.P2pConfig.KadDhtPeerDiscovery.ProtocolIDs = []string{"/erd/kad/1.2.0", "mvx1"} // another protocol ID
+		arg3.P2pConfig.KadDhtPeerDiscovery.ProtocolIDs = []string{"/drt/kad/1.2.0", "mvx1"} // another protocol ID
 		messenger3, _ := libp2p.NewNetworkMessenger(arg3)
 
 		_ = messenger2.CreateTopic("test", true)

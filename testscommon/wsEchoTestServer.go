@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 	"github.com/gorilla/websocket"
-	logger "github.com/multiversx/mx-chain-logger-go"
 )
 
 var upgrader = websocket.Upgrader{} // use default options

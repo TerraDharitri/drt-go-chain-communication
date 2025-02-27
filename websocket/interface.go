@@ -4,7 +4,7 @@ import (
 	"context"
 	"io"
 
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
 )
 
 // PayloadHandler defines what a payload handler should be able to do

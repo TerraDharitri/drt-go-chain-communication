@@ -5,13 +5,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/config"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/mock"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	"github.com/multiversx/mx-chain-core-go/marshal"
-	logger "github.com/multiversx/mx-chain-logger-go"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-core/marshal"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 )
 
 var log = logger.GetOrCreate("integrationtests")
@@ -39,7 +39,7 @@ func createP2PConfig(initialPeerList []string) config.P2PConfig {
 			Enabled:                          true,
 			Type:                             "optimized",
 			RefreshIntervalInSec:             2,
-			ProtocolIDs:                      []string{"/erd/kad/1.0.0"},
+			ProtocolIDs:                      []string{"/drt/kad/1.0.0"},
 			InitialPeerList:                  initialPeerList,
 			BucketSize:                       100,
 			RoutingTableRefreshIntervalInSec: 100,

@@ -8,11 +8,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/mock"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	"github.com/multiversx/mx-chain-core-go/core"
-	logger "github.com/multiversx/mx-chain-logger-go"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 	"github.com/stretchr/testify/assert"
 )
 

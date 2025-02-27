@@ -1,9 +1,9 @@
 package mock
 
 import (
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 	"github.com/libp2p/go-libp2p/core/network"
 	"github.com/multiformats/go-multiaddr"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
 )
 
 // ConnectionMonitorStub -

@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-core-go/core/check"
-	"github.com/multiversx/mx-chain-core-go/core/random"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	"github.com/TerraDharitri/drt-go-chain-core/core/random"
 )
 
 func getPort(port string, handler func(int) error, log p2p.Logger) (int, error) {

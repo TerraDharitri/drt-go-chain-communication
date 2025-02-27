@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p/integrationTests"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/integrationTests"
 	"github.com/stretchr/testify/assert"
 )
 

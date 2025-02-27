@@ -3,7 +3,7 @@ package discovery
 import (
 	"context"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 )
 
 var _ p2p.PeerDiscoverer = (*NilDiscoverer)(nil)

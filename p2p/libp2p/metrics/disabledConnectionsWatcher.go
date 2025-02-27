@@ -1,6 +1,6 @@
 package metrics
 
-import "github.com/multiversx/mx-chain-core-go/core"
+import "github.com/TerraDharitri/drt-go-chain-core/core"
 
 type disabledConnectionsWatcher struct{}
 

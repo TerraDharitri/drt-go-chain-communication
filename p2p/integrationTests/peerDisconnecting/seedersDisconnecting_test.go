@@ -3,14 +3,14 @@ package peerDisconnecting
 import (
 	"testing"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/integrationTests"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 	mocknet "github.com/libp2p/go-libp2p/p2p/net/mock"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/config"
-	"github.com/multiversx/mx-chain-communication-go/p2p/integrationTests"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/mock"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	logger "github.com/multiversx/mx-chain-logger-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

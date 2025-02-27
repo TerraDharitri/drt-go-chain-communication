@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/disabled"
-	"github.com/multiversx/mx-chain-core-go/core/check"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/disabled"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
 	"github.com/stretchr/testify/assert"
 )
 

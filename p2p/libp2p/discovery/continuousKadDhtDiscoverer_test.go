@@ -7,11 +7,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/discovery"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
 	"github.com/libp2p/go-libp2p/core/event"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/discovery"
-	"github.com/multiversx/mx-chain-communication-go/p2p/mock"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -23,7 +23,7 @@ func createTestArgument() discovery.ArgKadDht {
 		Host:                        &mock.ConnectableHostStub{},
 		KddSharder:                  &mock.KadSharderStub{},
 		PeersRefreshInterval:        time.Second,
-		ProtocolID:                  "/erd/test/0.0.0",
+		ProtocolID:                  "/drt/test/0.0.0",
 		InitialPeersList:            []string{"peer1", "peer2"},
 		BucketSize:                  100,
 		RoutingTableRefresh:         5 * time.Second,

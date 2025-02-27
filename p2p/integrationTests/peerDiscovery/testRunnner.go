@@ -6,7 +6,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 )
 
 var durationMsgReceived = 2 * time.Second

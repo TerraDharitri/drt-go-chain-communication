@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-storage-go/timecache"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-storage/timecache"
 )
 
 const MinTimeToLive = minTimeToLive

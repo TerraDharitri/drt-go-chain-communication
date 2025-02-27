@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
 	"github.com/stretchr/testify/require"
 )
 

@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/multiversx/mx-chain-communication-go/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket"
 )
 
 // Transceiver defines what a WebSocket transceiver should be able to do

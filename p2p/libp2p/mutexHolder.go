@@ -3,8 +3,8 @@ package libp2p
 import (
 	"sync"
 
-	"github.com/multiversx/mx-chain-storage-go/lrucache"
-	"github.com/multiversx/mx-chain-storage-go/types"
+	"github.com/TerraDharitri/drt-go-chain-storage/lrucache"
+	"github.com/TerraDharitri/drt-go-chain-storage/types"
 )
 
 // MutexHolder holds a cache of mutexes: pairs of (key, *sync.Mutex)

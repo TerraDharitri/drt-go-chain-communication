@@ -3,11 +3,11 @@ package factory
 import (
 	"fmt"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/networksharding"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
 	"github.com/libp2p/go-libp2p/core/peer"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/config"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/networksharding"
-	"github.com/multiversx/mx-chain-core-go/core/check"
 )
 
 // ArgsSharderFactory represents the argument for the sharder factory

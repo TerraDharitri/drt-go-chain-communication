@@ -1,12 +1,12 @@
 package factory
 
 import (
-	"github.com/multiversx/mx-chain-communication-go/websocket"
-	"github.com/multiversx/mx-chain-communication-go/websocket/client"
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
-	"github.com/multiversx/mx-chain-communication-go/websocket/server"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/marshal"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/client"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/server"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/marshal"
 )
 
 // ArgsWebSocketHost holds all the arguments needed in order to create a FullDuplexHost

@@ -6,14 +6,14 @@ import (
 	"strings"
 	"time"
 
+	webSocket "github.com/TerraDharitri/drt-go-chain-communication/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/connection"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/transceiver"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
-	webSocket "github.com/multiversx/mx-chain-communication-go/websocket"
-	"github.com/multiversx/mx-chain-communication-go/websocket/connection"
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
-	"github.com/multiversx/mx-chain-communication-go/websocket/transceiver"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/core/check"
 )
 
 // ArgsWebSocketServer holds all the components needed to create a server
@@ -43,7 +43,7 @@ type server struct {
 	payloadVersion             uint32
 }
 
-//NewWebSocketServer will create a new instance of server
+// NewWebSocketServer will create a new instance of server
 func NewWebSocketServer(args ArgsWebSocketServer) (*server, error) {
 	if err := checkArgs(args); err != nil {
 		return nil, err

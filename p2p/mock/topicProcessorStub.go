@@ -1,6 +1,6 @@
 package mock
 
-import "github.com/multiversx/mx-chain-communication-go/p2p"
+import "github.com/TerraDharitri/drt-go-chain-communication/p2p"
 
 // TopicProcessorStub -
 type TopicProcessorStub struct {

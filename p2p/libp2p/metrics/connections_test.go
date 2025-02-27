@@ -3,7 +3,7 @@ package metrics_test
 import (
 	"testing"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/metrics"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/metrics"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -7,10 +7,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
-	factoryHost "github.com/multiversx/mx-chain-communication-go/websocket/factory"
-	"github.com/multiversx/mx-chain-core-go/marshal/factory"
-	logger "github.com/multiversx/mx-chain-logger-go"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	factoryHost "github.com/TerraDharitri/drt-go-chain-communication/websocket/factory"
+	"github.com/TerraDharitri/drt-go-chain-core/marshal/factory"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 )
 
 var (

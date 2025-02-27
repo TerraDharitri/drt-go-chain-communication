@@ -1,6 +1,6 @@
 package factory
 
-import "github.com/multiversx/mx-chain-communication-go/websocket"
+import "github.com/TerraDharitri/drt-go-chain-communication/websocket"
 
 // FullDuplexHost defines what a full duplex host should be able to do
 type FullDuplexHost interface {

@@ -6,9 +6,9 @@ import (
 	"io"
 	"time"
 
-	"github.com/multiversx/mx-chain-core-go/core"
-	crypto "github.com/multiversx/mx-chain-crypto-go"
-	logger "github.com/multiversx/mx-chain-logger-go"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 )
 
 // MessageProcessor is the interface used to describe what a receive message processor should do

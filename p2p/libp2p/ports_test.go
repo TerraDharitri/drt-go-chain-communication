@@ -6,9 +6,9 @@ import (
 	"net"
 	"testing"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -3,8 +3,8 @@ package peerDisconnecting
 import (
 	"sync"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-core-go/core"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
 )
 
 type messageProcessor struct {

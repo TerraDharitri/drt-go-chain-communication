@@ -8,15 +8,15 @@ import (
 	"sync"
 	"time"
 
-	"github.com/libp2p/go-libp2p-pubsub"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/data"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/disabled"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	pubsub "github.com/libp2p/go-libp2p-pubsub"
 	pubsubPb "github.com/libp2p/go-libp2p-pubsub/pb"
 	libp2pCrypto "github.com/libp2p/go-libp2p/core/crypto"
 	"github.com/libp2p/go-libp2p/core/peer"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/data"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/disabled"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/core/check"
 )
 
 // TODO remove the header size of the message when commit d3c5ecd3a3e884206129d9f2a9a4ddfd5e7c8951 from

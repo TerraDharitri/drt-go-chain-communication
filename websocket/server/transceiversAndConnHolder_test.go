@@ -3,8 +3,8 @@ package server
 import (
 	"testing"
 
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	"github.com/multiversx/mx-chain-communication-go/testscommon/transceiver"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon/transceiver"
 	"github.com/stretchr/testify/require"
 )
 

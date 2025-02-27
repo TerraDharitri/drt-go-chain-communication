@@ -6,12 +6,12 @@ import (
 	"sync"
 	"time"
 
+	webSocket "github.com/TerraDharitri/drt-go-chain-communication/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	"github.com/TerraDharitri/drt-go-chain-core/core/closing"
 	"github.com/gorilla/websocket"
-	webSocket "github.com/multiversx/mx-chain-communication-go/websocket"
-	"github.com/multiversx/mx-chain-communication-go/websocket/data"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/core/check"
-	"github.com/multiversx/mx-chain-core-go/core/closing"
 )
 
 // ArgsTransceiver holds the arguments that are needed for a transceiver

@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/integrationTests"
-	"github.com/multiversx/mx-chain-communication-go/p2p/integrationTests/peerDiscovery"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/integrationTests"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/integrationTests/peerDiscovery"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -21,16 +21,16 @@ func TestPeerDiscoveryAndMessageSendingWithOneAdvertiserAndTwoNetworks(t *testin
 	numOfPeers := 20
 
 	//Step 1. Create advertiser
-	advertiser := integrationTests.CreateMessengerWithKadDhtAndProtocolID("", []string{"/erd/kad/1.1.0", "mvx"})
+	advertiser := integrationTests.CreateMessengerWithKadDhtAndProtocolID("", []string{"/drt/kad/1.1.0", "mvx"})
 	_ = advertiser.Bootstrap()
 
 	//Step 2. Create numOfPeers instances of messenger type and call bootstrap
 	peers := make([]p2p.Messenger, numOfPeers)
 
 	for i := 0; i < numOfPeers; i++ {
-		protocolIDs := []string{"/erd/kad/1.1.0"}
+		protocolIDs := []string{"/drt/kad/1.1.0"}
 		if i < numOfPeers/2 {
-			protocolIDs = []string{"/erd/kad/1.1.0", "mvx"}
+			protocolIDs = []string{"/drt/kad/1.1.0", "mvx"}
 		}
 		peers[i] = integrationTests.CreateMessengerWithKadDhtAndProtocolID(integrationTests.GetConnectableAddress(advertiser), protocolIDs)
 
@@ -139,7 +139,7 @@ func TestPeerDiscoveryAndMessageSendingWithOneAdvertiserAndProtocolID(t *testing
 	advertiser := integrationTests.CreateMessengerWithKadDht("")
 	_ = advertiser.Bootstrap()
 
-	protocolID1 := "/erd/kad/1.0.0"
+	protocolID1 := "/drt/kad/1.0.0"
 	protocolID2 := "/amony/kad/0.0.0"
 
 	peer1 := integrationTests.CreateMessengerWithKadDhtAndProtocolID(

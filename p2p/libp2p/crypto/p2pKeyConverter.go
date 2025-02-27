@@ -3,11 +3,11 @@ package crypto
 import (
 	"fmt"
 
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 	libp2pCrypto "github.com/libp2p/go-libp2p/core/crypto"
 	"github.com/libp2p/go-libp2p/core/peer"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/core/check"
-	crypto "github.com/multiversx/mx-chain-crypto-go"
 )
 
 type p2pKeyConverter struct {

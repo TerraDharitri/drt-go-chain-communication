@@ -6,6 +6,20 @@ import (
 	"strings"
 	"time"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/connectionMonitor"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/crypto"
+	discoveryFactory "github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/discovery/factory"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/metrics"
+	metricsFactory "github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/metrics/factory"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/networksharding/factory"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/resourceLimiter"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	"github.com/TerraDharitri/drt-go-chain-core/core/throttler"
+	commonCrypto "github.com/TerraDharitri/drt-go-chain-crypto"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 	logging "github.com/ipfs/go-log"
 	"github.com/libp2p/go-libp2p"
 	pubsub "github.com/libp2p/go-libp2p-pubsub"
@@ -14,25 +28,11 @@ import (
 	"github.com/libp2p/go-libp2p/p2p/transport/tcp"
 	ws "github.com/libp2p/go-libp2p/p2p/transport/websocket"
 	webtransport "github.com/libp2p/go-libp2p/p2p/transport/webtransport"
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/config"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/connectionMonitor"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/crypto"
-	discoveryFactory "github.com/multiversx/mx-chain-communication-go/p2p/libp2p/discovery/factory"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/metrics"
-	metricsFactory "github.com/multiversx/mx-chain-communication-go/p2p/libp2p/metrics/factory"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/networksharding/factory"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p/resourceLimiter"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/core/check"
-	"github.com/multiversx/mx-chain-core-go/core/throttler"
-	commonCrypto "github.com/multiversx/mx-chain-crypto-go"
-	logger "github.com/multiversx/mx-chain-logger-go"
 )
 
 const (
 	// DirectSendID represents the protocol ID for sending and receiving direct P2P messages
-	DirectSendID = protocol.ID("/erd/directsend/1.0.0")
+	DirectSendID = protocol.ID("/drt/directsend/1.0.0")
 
 	refreshPeersOnTopic             = time.Second * 3
 	ttlPeersOnTopic                 = time.Second * 10

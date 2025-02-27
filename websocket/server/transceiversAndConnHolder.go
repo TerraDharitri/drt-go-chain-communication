@@ -3,7 +3,7 @@ package server
 import (
 	"sync"
 
-	"github.com/multiversx/mx-chain-communication-go/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket"
 )
 
 type tupleTransceiverAndConn struct {

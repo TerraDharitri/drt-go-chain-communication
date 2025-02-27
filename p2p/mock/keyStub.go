@@ -1,7 +1,7 @@
 package mock
 
 import (
-	crypto "github.com/multiversx/mx-chain-crypto-go"
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 )
 
 // PrivateKeyStub provides stubs for a PrivateKey implementation

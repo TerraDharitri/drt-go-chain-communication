@@ -9,16 +9,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/multiversx/mx-chain-communication-go/p2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/config"
-	"github.com/multiversx/mx-chain-communication-go/p2p/libp2p"
-	"github.com/multiversx/mx-chain-communication-go/p2p/mock"
-	"github.com/multiversx/mx-chain-communication-go/testscommon"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-crypto-go/signing"
-	"github.com/multiversx/mx-chain-crypto-go/signing/secp256k1"
-	"github.com/multiversx/mx-chain-crypto-go/signing/secp256k1/singlesig"
-	logger "github.com/multiversx/mx-chain-logger-go"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing/secp256k1"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing/secp256k1/singlesig"
+	logger "github.com/TerraDharitri/drt-go-chain-logger"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -48,7 +48,7 @@ func createDefaultConfig() config.P2PConfig {
 			Type:                             "optimized",
 			RefreshIntervalInSec:             1,
 			RoutingTableRefreshIntervalInSec: 1,
-			ProtocolIDs:                      []string{"/erd/kad/1.0.0"},
+			ProtocolIDs:                      []string{"/drt/kad/1.0.0"},
 			InitialPeerList:                  nil,
 			BucketSize:                       100,
 		},

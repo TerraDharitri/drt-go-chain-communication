@@ -1,7 +1,7 @@
-# mx-chain-go p2p components
+# drt-chain-go p2p components
 
 The `Messenger` interface with its implementation are 
-used to define the way to communicate between MultiversX nodes. 
+used to define the way to communicate between Dharitri nodes. 
 
 There are 2 ways to send data to the other peers:
 1. Broadcasting messages on a `pubsub` using topics;

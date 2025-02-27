@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/multiversx/mx-chain-communication-go/websocket"
-	"github.com/multiversx/mx-chain-communication-go/websocket/client"
-	hostFactory "github.com/multiversx/mx-chain-communication-go/websocket/factory"
-	"github.com/multiversx/mx-chain-communication-go/websocket/server"
-	"github.com/multiversx/mx-chain-core-go/core"
-	"github.com/multiversx/mx-chain-core-go/marshal/factory"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/client"
+	hostFactory "github.com/TerraDharitri/drt-go-chain-communication/websocket/factory"
+	"github.com/TerraDharitri/drt-go-chain-communication/websocket/server"
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/marshal/factory"
 )
 
 const retryDurationInSeconds = 1
