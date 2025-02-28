@@ -1,4 +1,4 @@
-//go:generate protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/Dharitri/protobuf/protobuf  --gogoslick_out=$GOPATH/src wsMessage.proto
+//go:generate protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/TerraDharitri/protobuf/protobuf  --gogoslick_out=$GOPATH/src wsMessage.proto
 
 package data
 

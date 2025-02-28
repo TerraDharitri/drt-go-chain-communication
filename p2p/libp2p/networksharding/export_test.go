@@ -3,8 +3,8 @@ package networksharding
 import (
 	"math/big"
 
-	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/libp2p/go-libp2p/core/peer"
 )
 
 const (

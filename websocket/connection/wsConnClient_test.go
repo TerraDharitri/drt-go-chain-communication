@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gorilla/websocket"
 	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
 	"github.com/TerraDharitri/drt-go-chain-communication/websocket/data"
+	"github.com/gorilla/websocket"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

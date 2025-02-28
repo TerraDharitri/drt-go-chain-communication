@@ -1,4 +1,4 @@
-# mx-chain-go p2p components
+# drt-chain-go p2p components
 
 The `Messenger` interface with its implementation are 
 used to define the way to communicate between Dharitri nodes. 

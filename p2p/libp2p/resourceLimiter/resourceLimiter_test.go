@@ -7,12 +7,12 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/libp2p/go-libp2p"
 	"github.com/libp2p/go-libp2p/core/network"
 	rcmgr "github.com/libp2p/go-libp2p/p2p/host/resource-manager"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
 	"github.com/stretchr/testify/assert"
 )
 

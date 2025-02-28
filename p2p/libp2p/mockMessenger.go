@@ -3,11 +3,11 @@ package libp2p
 import (
 	"context"
 
-	mocknet "github.com/libp2p/go-libp2p/p2p/net/mock"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/crypto"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/metrics/factory"
 	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
+	mocknet "github.com/libp2p/go-libp2p/p2p/net/mock"
 )
 
 // NewMockMessenger creates a new sandbox testable instance of libP2P messenger

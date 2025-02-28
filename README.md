@@ -1,4 +1,4 @@
-# mx-chain-communication-go
+# drt-chain-communication-go
 
 This repository contains a Go modules for implementing different communication systems.
 
@@ -26,7 +26,7 @@ This example provides a basic usage scenario to help you understand and get star
 The peer-to-peer communication is managed by the `Messenger` implementation, which handles both messages broadcasted through the entire network and messages sent from directly connected peers.
 
 # Contributing
-Contributions to the mx-chain-communication-go module are welcomed. If you find any issues or have suggestions for improvements,
+Contributions to the drt-chain-communication-go module are welcomed. If you find any issues or have suggestions for improvements,
 please create a new issue or submit a pull request.
 
 # License

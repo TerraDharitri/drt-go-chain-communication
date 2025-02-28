@@ -15,7 +15,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-var log = logger.GetOrCreate("integrationtests/p2p/pedrtisconnecting")
+var log = logger.GetOrCreate("integrationtests/p2p/peerdisconnecting")
 
 func TestSeedersDisconnectionWith2AdvertiserAnd3Peers(t *testing.T) {
 	if testing.Short() {

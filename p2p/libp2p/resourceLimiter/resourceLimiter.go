@@ -3,10 +3,10 @@ package resourceLimiter
 import (
 	"fmt"
 
-	"github.com/libp2p/go-libp2p"
-	rcmgr "github.com/libp2p/go-libp2p/p2p/host/resource-manager"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/libp2p/go-libp2p"
+	rcmgr "github.com/libp2p/go-libp2p/p2p/host/resource-manager"
 )
 
 const oneMegabyteInBytes = 1024 * 1024

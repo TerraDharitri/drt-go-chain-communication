@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/stretchr/testify/assert"
 )
 

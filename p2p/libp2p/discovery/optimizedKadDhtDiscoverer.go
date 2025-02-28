@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 	dht "github.com/libp2p/go-libp2p-kad-dht"
 	"github.com/libp2p/go-libp2p/core/protocol"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 )
 
 type discovererStatus string

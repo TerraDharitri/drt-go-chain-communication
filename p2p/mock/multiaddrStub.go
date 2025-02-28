@@ -1,6 +1,8 @@
 package mock
 
-import "github.com/multiformats/go-multiaddr"
+import (
+	"github.com/multiformats/go-multiaddr"
+)
 
 // MultiaddrStub -
 type MultiaddrStub struct {

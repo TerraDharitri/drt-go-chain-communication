@@ -21,6 +21,8 @@ import (
 	"github.com/TerraDharitri/drt-go-chain-core/marshal"
 	"github.com/TerraDharitri/drt-go-chain-crypto/signing"
 	"github.com/TerraDharitri/drt-go-chain-crypto/signing/secp256k1"
+
+	// pubsub "github.com/libp2p/go-libp2p-pubsub"
 	pubsub "github.com/libp2p/go-libp2p-pubsub"
 	pubsubPb "github.com/libp2p/go-libp2p-pubsub/pb"
 	"github.com/libp2p/go-libp2p/core/peer"

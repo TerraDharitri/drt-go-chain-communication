@@ -6,8 +6,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/networksharding/sorting"
+	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -23,6 +23,11 @@ type NetworkStub struct {
 	ResourceManagerCalled func() network.ResourceManager
 }
 
+func (n *NetworkStub) CanDial(peerID peer.ID, addr multiaddr.Multiaddr) bool {
+	// Implement the logic for checking if dialing is possible
+	return true
+}
+
 // ResourceManager -
 func (ns *NetworkStub) ResourceManager() network.ResourceManager {
 	if ns.ResourceManagerCalled != nil {
