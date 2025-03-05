@@ -25,11 +25,6 @@ type ConnStub struct {
 	ScopeCalled           func() network.ConnScope
 	ConnStateCalled       func() network.ConnectionState
 	IsClosedCalled        func() bool
-	CloseWithErrorCalled  func(network.ConnErrorCode) error
-}
-
-func (c *ConnStub) CloseWithError(code network.ConnErrorCode) error {
-	return nil // or implement mock behavior if needed
 }
 
 // ID -
