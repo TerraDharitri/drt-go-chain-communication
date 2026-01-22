@@ -4,20 +4,18 @@ import (
 	"context"
 	"time"
 
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/disabled"
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 	"github.com/TerraDharitri/drt-go-chain-storage/types"
 	"github.com/libp2p/go-libp2p"
-	pubsub "github.com/libp2p/go-libp2p-pubsub"
 
-	// "github.com/libp2p/go-libp2p-pubsub"
-	// pubsub "github.com/libp2p/go-libp2p-pubsub"
+	pubsub "github.com/libp2p/go-libp2p-pubsub"
 	pb "github.com/libp2p/go-libp2p-pubsub/pb"
 	"github.com/libp2p/go-libp2p/core/peer"
-
 	"github.com/whyrusleeping/timecache"
+
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/disabled"
 )
 
 var MaxSendBuffSize = maxSendBuffSize
@@ -252,6 +250,7 @@ func NewMessagesHandlerWithNoRoutine(args ArgMessagesHandler) *messagesHandler {
 		processors:         make(map[string]TopicProcessor),
 		topics:             make(map[string]PubSubTopic),
 		subscriptions:      make(map[string]PubSubSubscription),
+		equivalentMessages: make(map[string]types.Cacher),
 		log:                args.Logger,
 	}
 

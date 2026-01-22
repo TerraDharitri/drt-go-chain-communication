@@ -9,6 +9,17 @@ import (
 	"testing"
 	"time"
 
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	atomicCore "github.com/TerraDharitri/drt-go-chain-core/core/atomic"
+	"github.com/TerraDharitri/drt-go-chain-core/marshal"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing"
+	"github.com/TerraDharitri/drt-go-chain-crypto/signing/secp256k1"
+	
+	pubsub "github.com/libp2p/go-libp2p-pubsub"
+	pubsubPb "github.com/libp2p/go-libp2p-pubsub/pb"
+	"github.com/libp2p/go-libp2p/core/peer"
+	"github.com/stretchr/testify/assert"
+
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/data"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
@@ -16,17 +27,6 @@ import (
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/message"
 	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
 	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
-	"github.com/TerraDharitri/drt-go-chain-core/core"
-	atomicCore "github.com/TerraDharitri/drt-go-chain-core/core/atomic"
-	"github.com/TerraDharitri/drt-go-chain-core/marshal"
-	"github.com/TerraDharitri/drt-go-chain-crypto/signing"
-	"github.com/TerraDharitri/drt-go-chain-crypto/signing/secp256k1"
-
-	// pubsub "github.com/libp2p/go-libp2p-pubsub"
-	pubsub "github.com/libp2p/go-libp2p-pubsub"
-	pubsubPb "github.com/libp2p/go-libp2p-pubsub/pb"
-	"github.com/libp2p/go-libp2p/core/peer"
-	"github.com/stretchr/testify/assert"
 )
 
 var (
@@ -562,8 +562,8 @@ func TestMessagesHandler_pubsubCallback(t *testing.T) {
 		assert.NotNil(t, mh)
 
 		tp := &mock.MessageProcessorStub{
-			ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
-				return expectedError
+			ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
+				return nil, expectedError
 			},
 		}
 		cb := mh.PubsubCallback(tp, providedTopic)
@@ -854,14 +854,14 @@ func TestMessagesHandler_SendToConnectedPeer(t *testing.T) {
 		counter := uint32(0)
 		providedMsgProcessors := []p2p.MessageProcessor{
 			&mock.MessageProcessorStub{
-				ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
+				ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
 					atomic.AddUint32(&counter, 1)
-					return expectedError
+					return nil, expectedError
 				},
 			}, &mock.MessageProcessorStub{
-				ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
+				ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
 					atomic.AddUint32(&counter, 1)
-					return nil
+					return nil, nil
 				},
 			},
 		}
@@ -1210,16 +1210,16 @@ func TestMessagesHandler_ProcessReceivedMessage(t *testing.T) {
 
 		mh := libp2p.NewMessagesHandlerWithNoRoutine(createMockArgMessagesHandler())
 		assert.NotNil(t, mh)
-
-		assert.Nil(t, mh.ProcessReceivedMessage(nil, "pid", &mock.MessageHandlerStub{}))
+		_, err := mh.ProcessReceivedMessage(nil, "pid", &mock.MessageHandlerStub{})
+		assert.Nil(t, err)
 	})
 	t.Run("nil source should return nil", func(t *testing.T) {
 		t.Parallel()
 
 		mh := libp2p.NewMessagesHandlerWithNoRoutine(createMockArgMessagesHandler())
 		assert.NotNil(t, mh)
-
-		assert.Nil(t, mh.ProcessReceivedMessage(&message.Message{}, "pid", nil))
+		_, err := mh.ProcessReceivedMessage(&message.Message{}, "pid", nil)
+		assert.Nil(t, err)
 	})
 }
 

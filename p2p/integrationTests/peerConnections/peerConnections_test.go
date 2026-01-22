@@ -7,11 +7,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
-	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 	"github.com/TerraDharitri/drt-go-chain-crypto/signing"
@@ -20,6 +15,12 @@ import (
 	logger "github.com/TerraDharitri/drt-go-chain-logger"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
 )
 
 var keyGen = signing.NewKeyGenerator(secp256k1.NewSecp256k1())
@@ -284,7 +285,7 @@ func getAddressMatching(addresses []string, including string, excluding string) 
 
 func createInterceptor(hostName string, dataMap map[string]map[string]int, mut *sync.Mutex) p2p.MessageProcessor {
 	return &mock.MessageProcessorStub{
-		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
+		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
 			mut.Lock()
 			numMessagesMap := dataMap[hostName]
 			if numMessagesMap == nil {
@@ -295,7 +296,7 @@ func createInterceptor(hostName string, dataMap map[string]map[string]int, mut *
 			numMessagesMap[string(message.Data())]++
 			mut.Unlock()
 
-			return nil
+			return nil, nil
 		},
 	}
 }

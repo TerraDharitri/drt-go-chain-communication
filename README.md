@@ -1,4 +1,4 @@
-# drt-chain-communication-go
+# drt-go-chain-communication
 
 This repository contains a Go modules for implementing different communication systems.
 
@@ -8,7 +8,7 @@ This repository contains a Go modules for implementing different communication s
 - Real-time data exchange between participants
 - Scalable architecture for handling multiple client connections
 - Customizable client/server configurations
-- The `Messenger` implementation that handles the communication between Dharitri nodes
+- The `Messenger` implementation that handles the communication between DharitrI nodes
 
 ## Sections
 
@@ -26,7 +26,7 @@ This example provides a basic usage scenario to help you understand and get star
 The peer-to-peer communication is managed by the `Messenger` implementation, which handles both messages broadcasted through the entire network and messages sent from directly connected peers.
 
 # Contributing
-Contributions to the drt-chain-communication-go module are welcomed. If you find any issues or have suggestions for improvements,
+Contributions to the drt-go-chain-communication module are welcomed. If you find any issues or have suggestions for improvements,
 please create a new issue or submit a pull request.
 
 # License

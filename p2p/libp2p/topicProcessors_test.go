@@ -4,12 +4,13 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
 )
 
 func TestNewTopicProcessors(t *testing.T) {
@@ -100,18 +101,18 @@ func TestTopicProcessorsGetListShouldWorkAndPreserveOrder(t *testing.T) {
 	identifier2 := "identifier2"
 	identifier3 := "identifier3"
 	handler1 := &mock.MessageProcessorStub{
-		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
-			return nil
+		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
+			return nil, nil
 		},
 	}
 	handler2 := &mock.MessageProcessorStub{
-		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
-			return nil
+		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
+			return nil, nil
 		},
 	}
 	handler3 := &mock.MessageProcessorStub{
-		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
-			return nil
+		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
+			return nil, nil
 		},
 	}
 

@@ -11,7 +11,6 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 	"github.com/TerraDharitri/drt-go-chain-core/core/check"
 	ggio "github.com/gogo/protobuf/io"
@@ -21,6 +20,8 @@ import (
 	"github.com/libp2p/go-libp2p/core/network"
 	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/whyrusleeping/timecache"
+
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 )
 
 var _ p2p.DirectSender = (*directSender)(nil)
@@ -176,7 +177,8 @@ func (ds *directSender) processReceivedDirectMessage(message *pubsubPb.Message, 
 		return err
 	}
 
-	return ds.messageHandler.ProcessReceivedMessage(msg, core.PeerID(fromConnectedPeer), ds.messageHandler)
+	_, err = ds.messageHandler.ProcessReceivedMessage(msg, core.PeerID(fromConnectedPeer), ds.messageHandler)
+	return err
 }
 
 func (ds *directSender) checkAndSetSeenMessage(msg *pubsubPb.Message) bool {

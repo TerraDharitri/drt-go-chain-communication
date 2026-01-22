@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 	"github.com/TerraDharitri/drt-go-chain-core/core"
+
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
 )
 
 // MessageProcessorMock -
@@ -22,14 +23,14 @@ func NewMessageProcessorMock() *MessageProcessorMock {
 }
 
 // ProcessReceivedMessage -
-func (processor *MessageProcessorMock) ProcessReceivedMessage(message p2p.MessageP2P, _ core.PeerID, _ p2p.MessageHandler) error {
+func (processor *MessageProcessorMock) ProcessReceivedMessage(message p2p.MessageP2P, _ core.PeerID, _ p2p.MessageHandler) ([]byte, error) {
 	processor.mut.Lock()
 	defer processor.mut.Unlock()
 
 	fmt.Printf("got message from %s\n", message.Peer().Pretty())
 	processor.messages[message.Peer()]++
 
-	return nil
+	return []byte{}, nil
 }
 
 // GetMessages -

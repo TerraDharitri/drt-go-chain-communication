@@ -12,14 +12,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/data"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
-	p2pCrypto "github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/crypto"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/message"
-	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
-	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 	"github.com/TerraDharitri/drt-go-chain-core/core/check"
 	"github.com/TerraDharitri/drt-go-chain-core/marshal"
@@ -36,6 +28,15 @@ import (
 	"github.com/multiformats/go-multiaddr"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/config"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/data"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p"
+	p2pCrypto "github.com/TerraDharitri/drt-go-chain-communication/p2p/libp2p/crypto"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/message"
+	"github.com/TerraDharitri/drt-go-chain-communication/p2p/mock"
+	"github.com/TerraDharitri/drt-go-chain-communication/testscommon"
 )
 
 const testTopic = "test"
@@ -73,12 +74,12 @@ func prepareMessengerForMatchDataReceive(messenger p2p.Messenger, matchData []by
 
 	_ = messenger.RegisterMessageProcessor(testTopic, "identifier",
 		&mock.MessageProcessorStub{
-			ProcessMessageCalled: func(message p2p.MessageP2P, _ core.PeerID, source p2p.MessageHandler) error {
+			ProcessMessageCalled: func(message p2p.MessageP2P, _ core.PeerID, source p2p.MessageHandler) ([]byte, error) {
 				if !bytes.Equal(matchData, message.Data()) {
-					return nil
+					return nil, nil
 				}
 				if !checkSigSize(len(message.Signature())) {
-					return nil
+					return nil, nil
 				}
 
 				// do not print the message.Data() or matchData as the test TestLibp2pMessenger_BroadcastDataBetween2PeersWithLargeMsgShouldWork
@@ -86,7 +87,7 @@ func prepareMessengerForMatchDataReceive(messenger p2p.Messenger, matchData []by
 
 				wg.Done()
 
-				return nil
+				return nil, nil
 			},
 		})
 }
@@ -1464,9 +1465,9 @@ func TestNetworkMessenger_PreventReprocessingShouldWork(t *testing.T) {
 
 	numCalled := uint32(0)
 	handler := &mock.MessageProcessorStub{
-		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
+		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
 			atomic.AddUint32(&numCalled, 1)
-			return nil
+			return nil, nil
 		},
 	}
 
@@ -1546,9 +1547,9 @@ func TestNetworkMessenger_PubsubCallbackNotMessageNotValidShouldNotCallHandler(t
 
 	numCalled := uint32(0)
 	handler := &mock.MessageProcessorStub{
-		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
+		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
 			atomic.AddUint32(&numCalled, 1)
-			return nil
+			return nil, nil
 		},
 	}
 
@@ -1612,9 +1613,9 @@ func TestNetworkMessenger_PubsubCallbackReturnsFalseIfHandlerErrors(t *testing.T
 
 	numCalled := uint32(0)
 	handler := &mock.MessageProcessorStub{
-		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) error {
+		ProcessMessageCalled: func(message p2p.MessageP2P, fromConnectedPeer core.PeerID, source p2p.MessageHandler) ([]byte, error) {
 			atomic.AddUint32(&numCalled, 1)
-			return expectedErr
+			return nil, expectedErr
 		},
 	}
 
