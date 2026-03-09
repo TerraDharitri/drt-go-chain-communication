@@ -10,8 +10,8 @@ git.apache.org/thrift.git v0.0.0-20180902110319-2566ecd5d999/go.mod h1:fPE2ZNJGy
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/TerraDharitri/drt-go-chain-core v1.0.1 h1:k0B3DZNYJwE/NmibEQBVi/TxDm5Ij1Poo2HOv6HcMMM=
 github.com/TerraDharitri/drt-go-chain-core v1.0.1/go.mod h1:dppf7NEpCEr/YrKYrRCnyVLsehIVnXSWMU4cikdL2/Q=
-github.com/TerraDharitri/drt-go-chain-crypto v1.0.0 h1:WxdvBkBt/kuUzofzFKYIZLok/otu51mD2iFCCnXadmQ=
-github.com/TerraDharitri/drt-go-chain-crypto v1.0.0/go.mod h1:viKoiLEX6j8l9X4ByoxA/v+9PKlH97qTQPkgaWUJxvQ=
+github.com/TerraDharitri/drt-go-chain-crypto v1.0.1 h1:kSfVue6EEF41W6MO2TJuaBe448Fpqsyq2/ILvTGaUpQ=
+github.com/TerraDharitri/drt-go-chain-crypto v1.0.1/go.mod h1:viKoiLEX6j8l9X4ByoxA/v+9PKlH97qTQPkgaWUJxvQ=
 github.com/TerraDharitri/drt-go-chain-logger v1.0.0 h1:JU7F0+DLrdV6mNXemd5RzyQcsy/QKCIrhSkvmoeHA9Y=
 github.com/TerraDharitri/drt-go-chain-logger v1.0.0/go.mod h1:5I5eJbzcpPswHIWc1oZXLzlvE3YWJ2S8nzmKZ8CeMm0=
 github.com/TerraDharitri/drt-go-chain-storage v1.0.0 h1:DwXNGYirYY8SyurtjLK4Gf6NO46aLy66SXNOTO2Q6Rk=
